@@ -1,7 +1,9 @@
-Example Voting App
-==================
+Example Voting App (For Raspbery PI)
+====================================
 
-This is an example Docker app with multiple services. It is run with Docker Compose and uses Docker Networking to connect containers together.
+This is an example Docker app with multiple services, adapted for ARM processors using the Hypriot OS. It is run with Docker Compose and uses Docker Networking to connect containers together.
+
+It is based on https://github.com/docker/example-voting-app
 
 More info at https://blog.docker.com/2015/11/docker-toolbox-compose/
 

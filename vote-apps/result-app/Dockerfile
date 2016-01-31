@@ -1,4 +1,5 @@
-FROM node:0.10
+#FROM node:0.10
+FROM hypriot/rpi-node:latest
 
 RUN mkdir /app
 WORKDIR /app

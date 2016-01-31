@@ -1,5 +1,6 @@
 # Using official python runtime base image
-FROM python:2.7
+#FROM python:2.7
+FROM hypriot/rpi-python:2.7
 
 # Set the application directory
 WORKDIR /app

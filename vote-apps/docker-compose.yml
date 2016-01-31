@@ -6,14 +6,16 @@ voting-app:
     - "5000:80"
 
 redis:
-  image: redis
+  #image: redis
+  image: hypriot/rpi-redis:latest
   ports: ["6379"]
 
 worker:
   build: ./worker
 
 db:
-  image: postgres:9.4
+  #image: postgres:9.4
+  image: ldouchy/rpi-postgres:latest
   volumes:
     - "myvolume:/var/lib/postgresql/data"
 
