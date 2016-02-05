@@ -1,12 +1,11 @@
-#FROM node:0.10
-FROM hypriot/rpi-node:latest
+FROM hypriot/rpi-node:slim
 
-RUN mkdir /app
 WORKDIR /app
 
 ADD package.json /app/package.json
-RUN npm install && npm ls
-RUN mv /app/node_modules /node_modules
+RUN npm install \
+	&& npm ls \
+	&& mv /app/node_modules /node_modules
 
 ADD . /app
 
