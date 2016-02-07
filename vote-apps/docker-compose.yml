@@ -1,21 +1,31 @@
-voting-app:
-  build: ./voting-app/.
-  ports:
-    - "5000:80"
+version: '2'
 
-redis:
-  image: hypriot/rpi-redis:latest
-  ports: ["6379"]
+services:
+  voting-app:
+    image: docker pull thecaptainsshack/rpi-voting-app
+    ports:
+      - "5000:80"
 
-worker:
-  build: ./worker
+  redis:
+    image: hypriot/rpi-redis:latest
+    expose: ["6379"]
 
-db:
-  build: ./postgres-arm/
-  volumes:
-    - "myvolume:/var/lib/postgresql/data"
+  worker:
+    image: thecaptainsshack/rpi-worker
 
-result-app:
-  build: ./result-app/.
-  ports:
-    - "5001:80"
+  db:
+    image: thecaptainsshack/postgres-arm
+    volumes:
+      - pg-volume:/var/lib/postgresql/data
+
+  result-app:
+    image: thecaptainsshack/rpi-result-app
+    ports:
+      - "5001:80"
+
+volumes:
+  pg-volume: {}
+
+networks:
+  default:
+    driver: overlay
