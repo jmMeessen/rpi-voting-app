@@ -2,7 +2,7 @@ version: '2'
 
 services:
   voting-app:
-    image: docker pull thecaptainsshack/rpi-voting-app:latest
+    image: thecaptainsshack/rpi-voting-app:latest
     ports:
       - "5000:80"
 
@@ -14,12 +14,12 @@ services:
     image: thecaptainsshack/rpi-worker:latest
 
   db:
-    image: thecaptainsshack/postgres-arm
+    image: thecaptainsshack/postgres-arm:latest
     volumes:
       - pg-volume:/var/lib/postgresql/data
 
   result-app:
-    image: thecaptainsshack/rpi-result-app
+    image: thecaptainsshack/rpi-result-app:latest
     ports:
       - "5001:80"
 
