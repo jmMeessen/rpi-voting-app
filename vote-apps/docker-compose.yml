@@ -26,6 +26,3 @@ services:
 volumes:
   pg-volume: {}
 
-networks:
-  default:
-    driver: overlay
