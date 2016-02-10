@@ -1,5 +1,5 @@
 registry:
-   image: registry:latest
+   image: registry:2
    restart: always
    ports:
    - 5000:5000

@@ -1,1 +1,3 @@
 *.jar
+keys/
+shack-registry/registry-data/docker/
