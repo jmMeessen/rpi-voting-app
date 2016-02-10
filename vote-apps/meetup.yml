@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  voting-app:
+    image: 192.168.2.1:5000/rpi-voting-app:latest
+
+  redis:
+    image: 192.168.2.1:5000/rpi-redis:latest
+
+  worker:
+    image: 192.168.2.1:5000/rpi-worker:latest
+
+  db:
+    image: 192.168.2.1:5000/postgres-arm:latest
+
+  result-app:
+    image: 192.168.2.1:5000/rpi-result-app:latest
