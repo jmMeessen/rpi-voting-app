@@ -5,24 +5,46 @@ services:
     image: thecaptainsshack/rpi-voting-app:latest
     ports:
       - "5000:80"
+    links:
+      - redis
+    networks:
+      - front-tier
+      - back-tier
 
   redis:
     image: hypriot/rpi-redis:latest
     expose: ["6379"]
+    networks:
+      - back-tier
 
   worker:
     image: thecaptainsshack/rpi-worker:latest
+    links:
+      - db
+      - redis
+    networks:
+      - back-tier
 
   db:
     image: thecaptainsshack/postgres-arm:latest
     volumes:
-      - pg-volume:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - back-tier
 
   result-app:
     image: thecaptainsshack/rpi-result-app:latest
     ports:
       - "5001:80"
+    links:
+      - db
+    networks:
+      - front-tier
+      - back-tier
 
 volumes:
-  pg-volume: {}
+  db-data: {}
 
+networks:
+  front-tier:
+  back-tier:
