@@ -19,14 +19,16 @@ Architecture
 Running
 -------
 
-Since this app makes use of Compose's experimental networking support, it must be started with:
+As of docker-compose v1.6 `--x-networking` flag is no longer necessary:
 
     $ cd vote-apps/worker
     $ make build # Will pre-build the java application for the worker and copy it locally
     $ cd ..
-    $ docker-compose --x-networking up -d
+    $ docker-compose up -d #include --x-networking if docker-compose version < 1.6
 
 The app will be running on port 5000 on your Docker host, and the results will be on port 5001.
+
+__NOTE:__ If running on a single RPi instead of a swarm you might encounter `ERROR: failed to parse pool request for address space "GlobalDefault" pool "" subpool "": cannot find address space GlobalDefault (most likely the backing datastore is not configured)`. This is because [you cannot create an overlay network on a single node](https://github.com/docker/docker/issues/19453). Comment out line 50 & 52 in `docker-compose.yml` that specify the network driver as overlay.
 
 Docker Hub images
 -----------------
