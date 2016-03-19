@@ -24,7 +24,7 @@ As of docker-compose v1.6 `--x-networking` flag is no longer necessary:
     $ cd vote-apps/worker
     $ make build # Will pre-build the java application for the worker and copy it locally
     $ cd ..
-    $ docker-compose up -d #include --x-networking if docker-compose version < 1.6
+    $ docker-compose up -d # Include --x-networking if using docker-compose version < 1.6
 
 The app will be running on port 5000 on your Docker host, and the results will be on port 5001.
 
