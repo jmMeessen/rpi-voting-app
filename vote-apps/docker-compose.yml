@@ -47,6 +47,6 @@ volumes:
 
 networks:
   front-tier:
-    driver: overlay
+#    driver: overlay
   back-tier:
-    driver: overlay
+#    driver: overlay

@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  voting-app:
+    image: netbook.local:5000/rpi-voting-app:latest
+
+  redis:
+    image: netbook.local:5000/rpi-redis:latest
+
+  worker:
+    image: netbook.local:5000/rpi-worker:latest
+
+  db:
+    image: netbook.local:5000/postgres-arm:latest
+
+  result-app:
+    image: netbook.local:5000/rpi-result-app:latest
